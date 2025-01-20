@@ -1,28 +1,34 @@
-import React from 'react';
+"use client";
+
+import React, { useEffect, useRef, useState } from 'react';
 
 const ProductSection = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
   const products = [
-    {
-      name: 'Nordic CHAIR',
-      price: 50.00,
-      image: 'product-2.svg'
-    },
-    {
-      name: 'Kruzo Aero Chair',
-      price: 78.00,
-      image: 'product-2.svg'
-    },
-    {
-      name: 'Ergonomic Chair',
-      price: 43.00,
-      image: 'product-2.svg'
-    }
+    { name: 'Nordic CHAIR', price: 50.00, image: 'product-2.svg' },
+    { name: 'Kruzo Aero Chair', price: 78.00, image: 'product-2.svg' },
+    { name: 'Ergonomic Chair', price: 43.00, image: 'product-2.svg' },
+    { name: 'Executive Chair', price: 65.00, image: 'product-2.svg' },
+    { name: 'Gaming Chair', price: 120.00, image: 'product-2.svg' },
+    { name: 'Office Chair', price: 90.00, image: 'product-2.svg' }
   ];
+
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 3) % products.length);
+    }, 3000); // Ganti setiap 3 detik
+
+    return () => clearInterval(interval);
+  }, [products.length]);
+
+  const visibleProducts = products.slice(currentIndex, currentIndex + 3);
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
       <div className="flex flex-col lg:flex-row gap-12">
-        <div className="lg:w-1/3">
+        <div className="lg:w-1/3 sticky top-0">
           <h2 className="text-3xl font-bold mb-4 text-black">
             Crafted with excellent material.
           </h2>
@@ -34,9 +40,9 @@ const ProductSection = () => {
           </button>
         </div>
 
-        <div className="lg:w-2/3">
+        <div className="lg:w-2/3" ref={containerRef}>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {products.map((product, index) => (
+            {visibleProducts.map((product, index) => (
               <div key={index} className="group relative bg-white rounded-lg shadow-lg hover:bg-gray-200 transition-all duration-300">
                 <div className="relative">
                   <div className="relative p-6">
