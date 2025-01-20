@@ -5,7 +5,7 @@ import { SizeFilter } from "./SizedFilter";
 import { StockFilter } from "./StockFilter";
 
 export const SidebarFIlter = ({ filters, handleFilterChange }) => (
-    <div className="w-64 flex-shrink-0">
+    <div className="w-64 flex-shrink-0 sticky top-0 self-start">
       <div className="flex items-center justify-between mb-4">
         <h2 className="font-medium text-black">◀ Filters</h2>
       </div>
