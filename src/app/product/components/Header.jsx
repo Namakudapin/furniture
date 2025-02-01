@@ -7,7 +7,7 @@ export const Header = () => (
       <div className="flex items-center gap-2 flex-1">
         <div className="relative">
           <select className="appearance-none bg-transparent pr-8 py-1 pl-2 border-r text-sm text-black">
-            <option>Shoes</option>
+            <option>Sofa</option>
           </select>
           <ChevronDownIcon className="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
         </div>

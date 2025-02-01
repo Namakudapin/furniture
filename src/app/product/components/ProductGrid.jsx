@@ -3,7 +3,6 @@ import { ProductCard } from './ProductCard';
 import { useState } from 'react';
 
 export const ProductGrid = () => {
-  // Data produk (contoh, bisa diganti dengan data dari API)
   const products = [
     { id: 1, onSale: false, inStock: true },
     { id: 2, onSale: false, inStock: false },
@@ -19,21 +18,19 @@ export const ProductGrid = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
 
-  // Hitung total halaman
   const totalPages = Math.ceil(products.length / itemsPerPage);
 
-  // Tentukan data untuk halaman saat ini
   const currentData = products.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
 
   return (
-    <div className="flex-1">
+    <div className="flex-1 p-4 md:p-6">
       {/* Header */}
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="font-medium text-black">
-          "Running Shoes" <span className="text-black text-sm">{products.length} Results</span>
+      <div className="flex flex-col sm:flex-row justify-between items-center mb-6 gap-4">
+        <h1 className="font-medium text-black text-lg md:text-xl">
+          "Sofa" <span className="text-sm md:text-base">{products.length} Results</span>
         </h1>
         <button className="border rounded px-3 py-1 text-sm flex items-center gap-1 text-black">
           Sort by
@@ -41,8 +38,8 @@ export const ProductGrid = () => {
         </button>
       </div>
 
-      {/* Grid Produk */}
-      <div className="grid grid-cols-3 gap-6">
+      {/* Grid Produk (Responsive) */}
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
         {currentData.map((product) => (
           <ProductCard
             key={product.id}
@@ -53,12 +50,12 @@ export const ProductGrid = () => {
       </div>
 
       {/* Pagination */}
-      <div className="flex justify-end items-center mt-6">
-        <div className="flex items-center gap-2">
+      <div className="flex justify-center sm:justify-end items-center mt-6">
+        <div className="flex flex-wrap items-center gap-2">
           <button
             disabled={currentPage === 1}
             onClick={() => setCurrentPage(currentPage - 1)}
-            className={`px-3 py-1 border rounded ${
+            className={`px-3 py-1 border rounded text-xs sm:text-sm ${
               currentPage === 1 ? 'bg-gray-200 text-gray-500' : 'text-black'
             }`}
           >
@@ -69,7 +66,7 @@ export const ProductGrid = () => {
             <button
               key={index + 1}
               onClick={() => setCurrentPage(index + 1)}
-              className={`px-3 py-1 border rounded ${
+              className={`px-3 py-1 border rounded text-xs sm:text-sm ${
                 currentPage === index + 1 ? 'bg-black text-white' : 'text-black'
               }`}
             >
@@ -80,7 +77,7 @@ export const ProductGrid = () => {
           <button
             disabled={currentPage === totalPages}
             onClick={() => setCurrentPage(currentPage + 1)}
-            className={`px-3 py-1 border rounded ${
+            className={`px-3 py-1 border rounded text-xs sm:text-sm ${
               currentPage === totalPages ? 'bg-gray-200 text-gray-500' : 'text-black'
             }`}
           >
