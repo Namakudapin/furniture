@@ -4,7 +4,7 @@ export const CategoryFilter = ({ filters, handleFilterChange }) => (
       <div className="space-y-2">
         {[
           { id: 'all', label: 'All' },
-          { id: 'runningShoes', label: 'Running Shoes' },
+          { id: 'runningShoes', label: 'Sofa' },
           { id: 'category3', label: 'Category 3' },
           { id: 'category4', label: 'Category 4' },
         ].map(({ id, label }) => (
@@ -15,9 +15,9 @@ export const CategoryFilter = ({ filters, handleFilterChange }) => (
               onChange={() => handleFilterChange(id)}
               className="rounded" 
             />
-            <span className="text-sm text-black">{label}</span>
-          </label>
-        ))}
-      </div>
+          <span className="text-sm text-black">{label}</span>
+        </label>
+      ))}
     </div>
-  );
+  </div>
+);

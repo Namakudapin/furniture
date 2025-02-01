@@ -83,12 +83,6 @@ const Navbar = () => {
                 Product
               </Link>
               <Link
-                href="/services"
-                className={`block px-3 py-2 ${isActive("/services") ? "border-l-4 border-yellow-500" : "hover:bg-[#2f4b40]"}`}
-              >
-                Services
-              </Link>
-              <Link
                 href="/blog"
                 className={`block px-3 py-2 ${isActive("/blog") ? "border-l-4 border-yellow-500" : "hover:bg-[#2f4b40]"}`}
               >

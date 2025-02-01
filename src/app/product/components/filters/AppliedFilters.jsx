@@ -6,8 +6,8 @@ export const AppliedFilters = () => (
       </div>
       <div className="flex flex-wrap gap-1">
         <span className="text-xs bg-gray-100 px-2 py-1 rounded-sm text-black">All ×</span>
-        <span className="text-xs bg-gray-100 px-2 py-1 rounded-sm text-black">Running Shoes ×</span>
-        <span className="text-xs bg-gray-100 px-2 py-1 rounded-sm text-black">Red ×</span>
+        <span className="text-xs bg-gray-100 px-2 py-1 rounded-sm text-black">Sofa ×</span>
+        <span className="text-xs bg-gray-100 px-2 py-1 rounded-sm text-black">Green ×</span>
       </div>
     </div>
   );
