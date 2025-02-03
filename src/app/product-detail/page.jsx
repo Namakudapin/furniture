@@ -7,8 +7,8 @@ import ProductInfo from './components/ProductInfo';
 import ColorSelection from './components/ColorSelection';
 import SizeSelection from './components/SizeSelection';
 import ActionButtons from './components/ActionButton';
-import { ProductGrid } from './components/ProductGrid';
 import ProductReviews from './components/ProductReviews';
+import { ProductSlider } from './components/ProductSlider';
 
 const ProductDetail = () => {
   const [selectedSize, setSelectedSize] = useState('8');
@@ -57,7 +57,7 @@ const ProductDetail = () => {
           </div>
         </div>
         <div className="border-t border-gray-300 my-8"></div>
-        <ProductGrid />
+        <ProductSlider />
         <ProductReviews />
       </div>
     </div>
